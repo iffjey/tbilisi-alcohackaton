@@ -19,6 +19,10 @@ injectGlobal`
     margin: 0;
     padding: 0;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
 `
 
 ReactDOM.render(<App />, document.getElementById('root'));

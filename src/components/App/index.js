@@ -1,13 +1,37 @@
 import React, { Component } from 'react';
-import styled from 'react-emotion';
+import styled, { keyframes } from 'react-emotion';
 
 import logo from './assets/logo.png';
+import arrow from './assets/down-arrow.svg';
 
-const FirstLayout = styled('div') `
+const arrowAnimation = keyframes`
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+`
+
+
+const FirstLayout = styled('section') `
   position: absolute;
   height: 100%;
   width: 100%;
   background-color: aquamarine;
+  padding: 50px 25px 0 25px;
+  text-align: center;
+`;
+
+const SecondLayout = styled('section') `
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 100%;
+  background-color: #F6B17F;
   padding: 50px 25px 0 25px;
   text-align: center;
 `;
@@ -34,12 +58,17 @@ const MartiansContainer = styled('div') `
   background-color: white;
   margin: 0 auto;
   padding: 10px 20px;
-  margin-top: 30px;
+  margin: 50px auto 60px auto;
   box-shadow: 3px 4px 10px #888888;
 `;
 
 const Description = styled('span') `
 
+`;
+
+const Arrow = styled('img') `
+   animation: ${arrowAnimation} 1s infinite;
+   animation-timing-function: ease-in-out;
 `;
 
 class App extends Component {
@@ -58,7 +87,12 @@ class App extends Component {
               <img src={logo} width="150px" alt="Evil Martians logo"></img>
             </a>
           </MartiansContainer>
+          <a href="#questions-block">
+            <Arrow src={arrow} width="70px" alt="Arrow down" />
+          </a>
         </FirstLayout>
+        <SecondLayout id="questions-block">
+        </SecondLayout>
       </div>
     );
   }
