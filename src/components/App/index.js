@@ -72,6 +72,17 @@ const Arrow = styled('img') `
 `;
 
 class App extends Component {
+  componentDidMount() {
+    this.fetchQuestions();
+  }
+
+  fetchQuestions() {
+    fetch('https://choose-martian-destiny-demo.herokuapp.com/quiz')
+      .then((response) => {
+        console.log(response)
+      })
+  }
+
   render() {
     return (
       <div className="app">
